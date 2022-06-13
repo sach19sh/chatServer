@@ -1,0 +1,36 @@
+chat server
+
+- > functional
+1. text
+2. media file sharing [ images/video  small size]
+1:1 / broadcasting ? -> 1:1
+group message  ? - y
+persistance ? -> n for P0
+latency ->  n
+
+NFL
+- guarantee
+- persistance
+- eventual consistency
+- availability
+- partition
+-security/privacy
+
+API
+POST / sendMessage(srcUsr, destUsr,  messageType, messageText)
+[internal] RPC / uploadMessage(srcUsr, messageType, media, messageText) -> MessageId
+ POST / sendMessageToGroup(srcUsr, groupId, messageType, messageText)
+ GET / getMessages(srcUsr);
+
+
+ GET ->
+ API layer -> Service layer -> datalyer -> DB
+
+DROP SCHEMA MessageModel CASCADE;
+CREATE SCHEMA Me;
+CREATE TABLE User1.MessageModel(
+id   INT primary key,
+userId CHARACTER (30),
+destUserId CHARACTER (30),
+message CHARACTER (30),
+);
